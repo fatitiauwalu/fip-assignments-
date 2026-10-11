@@ -1,0 +1,218 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & RESET (Box Model Setup)
+   ========================================================================== */
+* {
+  box-sizing: border-box; /* Ensures padding and border don't affect total element width */
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color Palette */
+  --primary-color: #1a1a1a;       /* Deep Charcoal Black */
+  --accent-color: #c5a880;        /* Elegant Gold/Beige Accent */
+  --bg-color: #faf9f6;            /* Soft Off-White */
+  --card-bg: #ffffff;             /* Clean White */
+  --text-color: #333333;          /* Dark Gray Body Text */
+  --light-gray: #e5e5e5;          /* Subtle Borders & Lines */
+  --hover-color: #a3865e;         /* Darker Gold Hover State */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+  background-color: var(--primary-color);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* ==========================================================================
+   3. LAYOUT & CONTAINERS (Box Model & Spacing)
+   ========================================================================== */
+main {
+  flex: 1;
+  width: 90%;
+  max-width: 1100px;
+  margin: 2.5rem auto; /* Top/Bottom Margin: 2.5rem, Centered Left/Right */
+  padding: 0 1rem;
+}
+
+section {
+  background: var(--card-bg);
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  padding: 2.5rem; /* Inner Spacing */
+  margin-bottom: 2rem; /* Outer Spacing between sections */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+/* ==========================================================================
+   4. FORM STYLING (Contact Page)
+   ========================================================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.8rem; /* Inner spacing inside inputs */
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+button[type="submit"],
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: 1px solid var(--primary-color);
+  padding: 0.8rem 2rem; /* Padding controlling button size */
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover,
+.btn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+footer {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem 1rem; /* Top/Bottom padding */
+  margin-top: auto;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (Media Query)
+   ========================================================================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  section {
+    padding: 1.5rem; /* Reduced padding on smaller mobile screens */
+  }
+}
