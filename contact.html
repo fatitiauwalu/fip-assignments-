@@ -6,12 +6,12 @@
     <title>Contact Us | AURA Fashion</title>
 
     <!-- Google Fonts for elevated typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Link to external CSS stylesheet -->
-  <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
     <header>
         <h1>AURA Fashion</h1>
         <p>Elevated Everyday Essentials</p>
-        
+
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -41,99 +41,70 @@
 
             <h3>Contact Information</h3>
             <ul>
-                <li><strong>Email:</strong>fatimaauwalu2005@gmail.com</li>
-                <li><strong>Phone:</strong>+234 916 833 3333</li>
-                <li><strong>Hours:</strong> Monday – Friday, 9:00 AM – 5:00 PM </li>
-                <li><strong>Showroom Location:</strong>Sunnyvale estate, Abuja, Nigeria</li>
+                <li><strong>Email:</strong> fatimaauwalu2005@gmail.com</li>
+                <li><strong>Phone:</strong> +234 916 833 3333</li>
+                <li><strong>Hours:</strong> Monday – Friday, 9:00 AM – 5:00 PM</li>
+                <li><strong>Showroom Location:</strong> Sunnyvale estate, Abuja, Nigeria</li>
             </ul>
         </section>
 
-        <!-- Section 2: Accessible Form -->
-      <section>
-        <h2>Send Us a Message</h2>
-        <form action="#" method="POST">
-          <!-- Group 1: Personal Details -->
-          <fieldset>
-            <legend>Personal Details</legend>
+        <!-- Section 2: Contact Form with Validation & Helper Text -->
+        <section class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            
+            <form action="#" method="POST" class="contact-form">
+              
+              <!-- Group 1: Personal Information -->
+              <fieldset>
+                <legend>Personal Information</legend>
+                
+                <div class="form-group">
+                  <label for="name">Full Name:</label>
+                  <input type="text" id="name" name="name" required minlength="2" placeholder="Enter your full name">
+                  <small>Please enter your first and last name.</small>
+                </div>
 
-            <div class="form-group">
-              <label for="fullname">Full Name:</label>
-              <input type="text" id="fullname" name="fullname" required minlength="3" maxlength="50">
-            </div>
+                <div class="form-group">
+                  <label for="email">Email Address:</label>
+                  <input type="email" id="email" name="email" required placeholder="you@example.com">
+                  <small>We'll never share your email with anyone else.</small>
+                </div>
 
-            <div class="form-group">
-              <label for="email">Email Address:</label>
-              <input type="email" id="email" name="email" required>
-            </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number:</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+234...">
+                </div>
+              </fieldset>
 
-            <div class="form-group">
-              <label for="pass">Account Password:</label>
-              <input type="password" id="pass" name="pass" required minlength="8">
-            </div>
-          </fieldset>
+              <!-- Group 2: Inquiry Details -->
+              <fieldset>
+                <legend>Inquiry Details</legend>
+                
+                <div class="form-group">
+                  <label for="subject">Subject:</label>
+                  <select id="subject" name="subject" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="sizing">Sizing & Fit</option>
+                    <option value="order">Order Status</option>
+                    <option value="sustainability">Sustainability Practices</option>
+                    <option value="other">Other Inquiry</option>
+                  </select>
+                </div>
 
-          <!-- Group 2: Inquiry & Preferences -->
-          <fieldset>
-            <legend>Your Inquiry</legend>
+                <div class="form-group">
+                  <label for="message">Your Message:</label>
+                  <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Type your message here..."></textarea>
+                  <small>Please provide at least 10 characters.</small>
+                </div>
+              </fieldset>
 
-            <div class="form-group">
-              <label for="topic">Inquiry Type:</label>
-              <select id="topic" name="topic" required>
-                <option value="">--Please select an option--</option>
-                <option value="support">Customer Support</option>
-                <option value="orders">Orders & Shipping</option>
-                <option value="feedback">General Feedback</option>
-              </select>
-            </div>
+              <!-- Submit Button -->
+              <button type="submit" class="submit-btn">Send Message</button>
 
-            <div class="form-group">
-              <label for="message">Message:</label>
-              <textarea id="message" name="message" rows="4" required minlength="10"></textarea>
-            </div>
-
-            <div class="form-group-inline">
-              <input type="checkbox" id="newsletter" name="newsletter">
-              <label for="newsletter">Subscribe to fashion updates</label>
-            </div>
-          </fieldset>
-
-          <button type="submit">Submit Inquiry</button>
-        </form>
-      </section>
-
-        <hr>
-
-        
-
-        <hr>
-
-        <!-- Section 3: Frequently Asked Questions -->
-        <section>
-            <h2>Frequently Asked Questions</h2>
-
-            <article>
-                <h3>What is your return policy?</h3>
-                <p>We accept unworn, unwashed items for return or exchange within 30 days of delivery.</p>
-            </article>
-
-            <article>
-                <h3>Do you ship internationally?</h3>
-                <p>Yes, we ship to most countries worldwide! Shipping rates and estimated delivery times are calculated at checkout.</p>
-            </article>
+            </form>
         </section>
 
     </main>
-
-    <hr>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 AURA Fashion. All rights reserved.</p>
-        <p>
-            <a href="index.html">Home</a> | 
-            <a href="about.html">About Us</a>
-        </p>
-    </footer>
 
 </body>
 </html>
