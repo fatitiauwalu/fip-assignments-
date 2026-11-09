@@ -14,22 +14,23 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
     <!-- Main Header & Navigation -->
     <header>
         <h1>AURA Fashion</h1>
         <p>Elevated Everyday Essentials</p>
         
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <button id="menu-btn" class="menu-btn">☰</button>
+        <ul id="nav-links" class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn">🌙 Dark Mode</button>
+    </nav>
     </header>
 
-    <hr>
+    
 
     <!-- Main Content Area -->
     <main>
@@ -40,6 +41,18 @@
             <p>Discover timeless pieces, sustainable fabrics, and modern fits designed to make you feel confident every day.</p>
             <a href="about.html">Learn Our Story</a>
         </section>
+
+        <!-- Feature 3: Interactive Size Selector -->
+  <section class="size-selector-section">
+    <h3>Select Your Size</h3>
+    <div class="size-options">
+        <button class="size-btn">S</button>
+        <button class="size-btn">M</button>
+        <button class="size-btn">L</button>
+        <button class="size-btn">XL</button>
+    </div>
+    <p id="size-message">Please select a size.</p>
+    </section>
 
         <hr>
 
@@ -111,6 +124,11 @@
             <a href="about.html">About Us</a>
         </p>
     </footer>
-
+    <!-- Feature 4: Interactive Toast Notification -->
+<div id="toast-notification" class="toast hidden">
+    <p id="toast-message">✨ Item added to your cart!</p>
+    <button id="toast-close-btn">&times;</button>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

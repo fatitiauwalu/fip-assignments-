@@ -29,4 +29,3 @@ A modern, responsive e-commerce fashion site developed as part of the Web Develo
 ├── contact.html     # Contact and inquiry form page
 ├── index.css        # Central stylesheet with media queries
 ├── .gitignore       # System ignore list
-└── README.md        # Project documentation
