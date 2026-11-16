@@ -605,3 +605,38 @@ html, body {
     padding: 0;
     border: none;
 }
+
+/* --- Live Form Validation States (Week 8) --- */
+
+.form-group input.input-error,
+.form-group select.input-error,
+.form-group textarea.input-error {
+  border: 2px solid #d93025;
+  background-color: #fff8f7;
+}
+
+.form-group input.input-valid,
+.form-group select.input-valid,
+.form-group textarea.input-valid {
+  border: 2px solid #1e8e3e;
+}
+
+.error-message {
+  display: block;
+  color: #d93025;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 4px;
+  min-height: 1.1em; /* Prevents layout jumping when errors appear */
+}
+
+.form-success {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: #e6f4ea;
+  border: 1px solid #1e8e3e;
+  color: #137333;
+  font-weight: 600;
+  text-align: center;
+}

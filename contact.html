@@ -52,59 +52,71 @@
         <section class="contact-form-section">
             <h2>Send Us a Message</h2>
             
-            <form action="#" method="POST" class="contact-form">
-              
-              <!-- Group 1: Personal Information -->
-              <fieldset>
-                <legend>Personal Information</legend>
-                
-                <div class="form-group">
-                  <label for="name">Full Name:</label>
-                  <input type="text" id="name" name="name" required minlength="2" placeholder="Enter your full name">
-                  <small>Please enter your first and last name.</small>
-                </div>
+            <form action="#" method="POST" class="contact-form" id="contactForm" novalidate>
 
-                <div class="form-group">
-                  <label for="email">Email Address:</label>
-                  <input type="email" id="email" name="email" required placeholder="you@example.com">
-                  <small>We'll never share your email with anyone else.</small>
-                </div>
+  <!-- Group 1: Personal Information -->
+  <fieldset>
+    <legend>Personal Information</legend>
 
-                <div class="form-group">
-                  <label for="phone">Phone Number:</label>
-                  <input type="tel" id="phone" name="phone" placeholder="+234...">
-                </div>
-              </fieldset>
+    <div class="form-group">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required minlength="2" placeholder="Enter your full name" aria-describedby="name-error">
+      <span class="error-message" id="name-error" aria-live="polite"></span>
+      <small>Please enter your first and last name.</small>
+    </div>
 
-              <!-- Group 2: Inquiry Details -->
-              <fieldset>
-                <legend>Inquiry Details</legend>
-                
-                <div class="form-group">
-                  <label for="subject">Subject:</label>
-                  <select id="subject" name="subject" required>
-                    <option value="">--Please choose an option--</option>
-                    <option value="sizing">Sizing & Fit</option>
-                    <option value="order">Order Status</option>
-                    <option value="sustainability">Sustainability Practices</option>
-                    <option value="other">Other Inquiry</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" aria-describedby="email-error">
+      <span class="error-message" id="email-error" aria-live="polite"></span>
+      <small>We'll never share your email with anyone else.</small>
+    </div>
 
-                <div class="form-group">
-                  <label for="message">Your Message:</label>
-                  <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Type your message here..."></textarea>
-                  <small>Please provide at least 10 characters.</small>
-                </div>
-              </fieldset>
+    <div class="form-group">
+      <label for="phone">Phone Number (Optional):</label>
+      <input type="tel" id="phone" name="phone" placeholder="+234..." aria-describedby="phone-error">
+      <span class="error-message" id="phone-error" aria-live="polite"></span>
+    </div>
+  </fieldset>
 
-              <!-- Submit Button -->
-              <button type="submit" class="submit-btn">Send Message</button>
+  <!-- Group 2: Inquiry Details -->
+  <fieldset>
+    <legend>Inquiry Details</legend>
 
-            </form>
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject" required aria-describedby="subject-error">
+        <option value="">--Please choose an option--</option>
+        <option value="sizing">Sizing & Fit</option>
+        <option value="order">Order Status</option>
+        <option value="sustainability">Sustainability Practices</option>
+        <option value="other">Other Inquiry</option>
+      </select>
+      <span class="error-message" id="subject-error" aria-live="polite"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="5" required minlength="10" placeholder="Type your message here..." aria-describedby="message-error"></textarea>
+      <span class="error-message" id="message-error" aria-live="polite"></span>
+      <small>Please provide at least 10 characters.</small>
+    </div>
+  </fieldset>
+
+  <!-- Submit Button -->
+  <button type="submit" class="submit-btn">Send Message</button>
+
+  <!-- Success State Message -->
+  <div id="formSuccess" class="form-success" role="status" aria-live="polite" hidden>
+    ✓ Thank you! Your message has been sent to AURA Fashion.
+  </div>
+
+</form>
         </section>
 
     </main>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
