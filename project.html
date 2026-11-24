@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Projects | Runway &amp; Merch Planner</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="script.js" defer></script>
+</head>
+<body class="page-projects">
+  <header class="site-header">
+    <div class="nav-shell">
+      <button type="button" class="nav-toggle" id="menuToggle" aria-label="Open menu">
+        Menu
+      </button>
+
+      <ul class="nav-menu" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+      </ul>
+
+      <a href="index.html" class="brand-mark">MAISON STUDIO</a>
+
+      <button type="button" class="mode-switch" id="themeToggle" aria-label="Switch color theme">
+        Theme
+      </button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <div class="workspace-header">
+      <h1>Wardrobe &amp; Campaign Board</h1>
+      <p>Organize garment fittings, lookbook shots, and sample deadlines. Everything stays saved in your browser.</p>
+    </div>
+
+    <div class="board-layout">
+      <!-- Left Column: Create Item -->
+      <aside class="composer-card">
+        <h2>New Board Item</h2>
+        <form id="taskForm" class="board-form">
+          <div class="field-group">
+            <label for="taskInput">Item Title</label>
+            <input
+              type="text"
+              id="taskInput"
+              name="taskTitle"
+              placeholder="e.g., Steam silk trench samples"
+              required
+            />
+          </div>
+
+          <div class="field-group">
+            <label for="taskCategory">Stage</label>
+            <select id="taskCategory" name="taskStage">
+              <option value="Fit Check">Fit Check</option>
+              <option value="Editorial">Editorial</option>
+              <option value="Production">Production</option>
+            </select>
+          </div>
+
+          <button type="submit" class="primary-btn">Save to Board</button>
+        </form>
+      </aside>
+
+      <!-- Right Column: Filter & Dynamic List -->
+      <section class="items-panel" aria-label="Saved board items">
+        <div class="panel-toolbar">
+          <div class="view-filters" role="group" aria-label="Filter items">
+            <button type="button" class="filter-chip is-selected" data-filter="all">All Items</button>
+            <button type="button" class="filter-chip" data-filter="active">In Progress</button>
+            <button type="button" class="filter-chip" data-filter="completed">Done</button>
+          </div>
+        </div>
+
+        <ul id="taskList" class="board-list"></ul>
+        <p id="emptyState" class="board-empty">Your board is empty—add an item on the left to begin.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Maison Studio &bull; Built with HTML, CSS &amp; Local Storage</p>
+  </footer>
+</body>
+</html>

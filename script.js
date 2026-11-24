@@ -229,3 +229,139 @@ if (contactForm) {
     );
   });
 }
+
+// ===== Week 9: Projects Board with localStorage =====
+const STORAGE_KEY = "maisonStudioBoardItems";
+
+const taskForm = document.getElementById("taskForm");
+const taskInput = document.getElementById("taskInput");
+const taskCategory = document.getElementById("taskCategory");
+const taskList = document.getElementById("taskList");
+const emptyState = document.getElementById("emptyState");
+const filterButtons = document.querySelectorAll(".filter-chip");
+
+if (taskForm && taskList) {
+  let tasks = loadTasks();
+  let currentFilter = "all";
+
+  function loadTasks() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const parsed = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveTasks() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  }
+
+  function getFilteredTasks() {
+    if (currentFilter === "active") {
+      return tasks.filter((task) => !task.completed);
+    }
+    if (currentFilter === "completed") {
+      return tasks.filter((task) => task.completed);
+    }
+    return tasks;
+  }
+
+  function renderTasks() {
+    const visibleTasks = getFilteredTasks();
+    taskList.innerHTML = "";
+
+    if (emptyState) {
+      emptyState.style.display = visibleTasks.length === 0 ? "block" : "none";
+    }
+
+    visibleTasks.forEach((task) => {
+      const li = document.createElement("li");
+      li.className = `task-item${task.completed ? " is-completed" : ""}`;
+
+      const mainDiv = document.createElement("div");
+      mainDiv.className = "task-main";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = Boolean(task.completed);
+      checkbox.setAttribute("aria-label", `Mark "${task.title}" as done`);
+      checkbox.addEventListener("change", () => {
+        task.completed = checkbox.checked;
+        saveTasks();
+        renderTasks();
+      });
+
+      const titleSpan = document.createElement("span");
+      titleSpan.className = "task-title";
+      titleSpan.textContent = task.title;
+
+      const stageBadge = document.createElement("span");
+      stageBadge.className = "task-stage";
+      stageBadge.textContent = task.stage;
+
+      mainDiv.append(checkbox, titleSpan, stageBadge);
+
+      const actionsDiv = document.createElement("div");
+      actionsDiv.className = "task-actions";
+
+      const editBtn = document.createElement("button");
+      editBtn.type = "button";
+      editBtn.textContent = "Edit";
+      editBtn.addEventListener("click", () => {
+        const updatedTitle = prompt("Update board item:", task.title);
+        if (updatedTitle !== null && updatedTitle.trim() !== "") {
+          task.title = updatedTitle.trim();
+          saveTasks();
+          renderTasks();
+        }
+      });
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.type = "button";
+      deleteBtn.className = "delete-btn";
+      deleteBtn.textContent = "Delete";
+      deleteBtn.addEventListener("click", () => {
+        tasks = tasks.filter((item) => item.id !== task.id);
+        saveTasks();
+        renderTasks();
+      });
+
+      actionsDiv.append(editBtn, deleteBtn);
+      li.append(mainDiv, actionsDiv);
+      taskList.appendChild(li);
+    });
+  }
+
+  taskForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const title = taskInput.value.trim();
+    if (!title) return;
+
+    const newTask = {
+      id: Date.now().toString(),
+      title,
+      stage: taskCategory ? taskCategory.value : "Fit Check",
+      completed: false,
+    };
+
+    tasks.unshift(newTask);
+    saveTasks();
+    renderTasks();
+
+    taskInput.value = "";
+    taskInput.focus();
+  });
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      currentFilter = btn.dataset.filter || "all";
+      filterButtons.forEach((b) => b.classList.remove("is-selected"));
+      btn.classList.add("is-selected");
+      renderTasks();
+    });
+  });
+
+  renderTasks();
+}
